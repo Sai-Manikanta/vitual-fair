@@ -4,7 +4,7 @@ function Landing3dContent() {
     return (
         <div className="flex-grow relative">
             <img 
-                src="https://d246zmsm5ycwub.cloudfront.net/assets/images/LobbyIMAGEFORTESTING.png" 
+                src="images/LobbyTrasparentOverlay.png"
                 alt="LobbyIMAGEFORTESTING"
                 className="absolute w-full h-full"
                 usemap="#image-map"
