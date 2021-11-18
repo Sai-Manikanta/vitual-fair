@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
+import UiModeContextProvider from './contexts/UiModeContext';
 import './index.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Router>
+            <UiModeContextProvider>
+                <App />
+            </UiModeContextProvider>
+        </Router>
     </React.StrictMode>,
     document.getElementById('root')
 )

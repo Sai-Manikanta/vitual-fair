@@ -1,22 +1,29 @@
+import { useHistory } from 'react-router-dom'
 import LobbyVideo from '../videos/lobby.mp4';
 
 function Landing3dContent() {
+    const history = useHistory();
+
+    const changePage = page => {
+        history.push(page);
+    }
+
     return (
-        <div className="flex-grow relative">
+        <div className="flex-grow relative"> 
             <img 
                 src="images/LobbyTrasparentOverlay.png"
                 alt="LobbyIMAGEFORTESTING"
                 className="absolute w-full h-full"
-                usemap="#image-map"
+                useMap="#image-map"
             />
 
             <map name="image-map">
-                <area target="_self" alt="Conference" title="Conference" href="conference" coords="170,350,441,488" shape="rect" />
-                <area target="_self" alt="Exibition" title="Exibition" href="exbition" coords="1002,496,1290,349" shape="rect" />
-                <area target="_self" alt="Meeting" title="Meeting" href="meeting" coords="206,339,445,277" shape="rect" />
-                <area target="_self" alt="Poster" title="Poster" href="Poster" coords="1000,341,1217,278" shape="rect" />
-                <area target="_self" alt="Information Desk" title="Information Desk" href="Information desk" coords="653,482,785,400" shape="rect" />
-                <area target="_self" alt="Pitstop" title="Pitstop" href="Pitstop" coords="677,577,762,549" shape="rect" />
+                <area target="" alt="Conference" onClick={() => changePage('/conference')} title="Conference" coords="170,350,441,488" shape="rect" className="cursor-pointer" />
+                <area target="" alt="Exibition" onClick={() => changePage('/exibition')} title="Exibition" coords="1002,496,1290,349" shape="rect" className="cursor-pointer" />
+                <area target="" alt="Meeting" onClick={() => changePage('/meeting')} title="Meeting" coords="206,339,445,277" shape="rect" className="cursor-pointer" />
+                <area target="" alt="Poster" onClick={() => changePage('/poster')} title="Poster" coords="1000,341,1217,278" shape="rect" className="cursor-pointer" />
+                <area target="" alt="Information Desk" onClick={() => changePage('/information-desk')} title="Information Desk" coords="653,482,785,400" shape="rect" className="cursor-pointer" />
+                <area target="" alt="Pitstop" onClick={() => changePage('/pitstop')} title="Pitstop" coords="677,577,762,549" shape="rect" className="cursor-pointer" />
             </map>
 
             <video 
