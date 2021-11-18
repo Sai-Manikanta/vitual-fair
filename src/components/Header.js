@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { isDesktop } from 'react-device-detect';
 import { useUiModeContext } from '../contexts/UiModeContext'
 
 function Header() {
@@ -14,17 +15,19 @@ function Header() {
                 />
             </Link>
             
-            {/* Toggle Switch */}
-            <div 
-                className="rounded-full p-2 shadow cursor-pointer flex justify-between items-center"
-                onClick={() => setUiMode(uiMode => uiMode === '3d' ? '2d' : '3d')} // toggle 2d 3d modes
-            >
-                {(uiMode === '3d') && <span className="text-xs mr-1 select-none">3D</span>}
-                <span 
-                    className={`bg-blue-400 w-4 h-4 block rounded-full ${(uiMode === '3d') ? 'float-right' : 'float-left'}`}
-                ></span>
-                {(uiMode === '2d') && <span className="text-xs ml-1 select-none">2D</span>}
-            </div>
+            {/* Display Toggle Switch in Desktops only  */}
+            {isDesktop && (
+                <div 
+                    className="rounded-full p-2 shadow cursor-pointer flex justify-between items-center"
+                    onClick={() => setUiMode(uiMode => uiMode === '3d' ? '2d' : '3d')} // toggle 2d 3d modes
+                >
+                    {(uiMode === '3d') && <span className="text-xs mr-1 select-none">3D</span>}
+                    <span 
+                        className={`bg-blue-400 w-4 h-4 block rounded-full ${(uiMode === '3d') ? 'float-right' : 'float-left'}`}
+                    ></span>
+                    {(uiMode === '2d') && <span className="text-xs ml-1 select-none">2D</span>}
+                </div>
+            )}
         </header>
     )
 }

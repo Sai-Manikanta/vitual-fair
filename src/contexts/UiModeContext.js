@@ -1,4 +1,5 @@
 import { useState, createContext, useContext } from 'react';
+import { isMobile } from "react-device-detect";
 
 const UiModeContext = createContext();
 
@@ -7,7 +8,7 @@ export const useUiModeContext = () => {
 }
 
 function UiModeContextProvider({ children }) {
-    const [uiMode, setUiMode] = useState('3d');
+    const [uiMode, setUiMode] = useState(isMobile ? '2d' : '3d');
 
     return (
         <UiModeContext.Provider value={{ uiMode, setUiMode }}>
